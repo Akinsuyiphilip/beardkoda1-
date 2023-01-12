@@ -144,15 +144,84 @@ export default function Home() {
             </motion.a>
           </div>
           <section className=" relative flex justify-center">
-          <Image src={planet1} className=" absolute opacity-40 -top-80 right-10 h-10" alt="planet" />
-          <Image src={planet2} className=" absolute opacity-40 -top-80 left-40 h-10" alt="planet" />
-          <Image src={planet3} className=" absolute opacity-40 bottom-90 -left-40 h-10" alt="planet" />
-          <Image src={planet4} className=" absolute opacity-40 -top-80 right-400 h-10" alt="planet" />
-        </section>
+            <motion.div
+              className="flex"
+              whileTap={{ scale: 0.9 }}
+              drag={true}
+              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1, ease: "easeInOut" },
+              }}
+            >
+              <Image
+                src={planet1}
+                className=" absolute opacity-40 -top-80 right-10 h-10"
+                alt="planet"
+              />
+            </motion.div>
+            <motion.div
+              className="flex"
+              whileTap={{ scale: 0.9 }}
+              drag={true}
+              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1, ease: "easeInOut" },
+              }}
+            >
+              <Image
+                src={planet2}
+                className=" absolute opacity-40 -top-80 left-40 h-10"
+                alt="planet"
+              />
+            </motion.div>
+
+            <motion.div
+              className="flex"
+              whileTap={{ scale: 0.9 }}
+              drag={true}
+              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1, ease: "easeInOut" },
+              }}
+            >
+              <Image
+                src={planet4}
+                className=" absolute opacity-40 -top-80 right-400 h-10"
+                alt="planet"
+              />
+            </motion.div>
+            <motion.div
+              className="flex"
+              whileTap={{ scale: 0.9 }}
+              drag={true}
+              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
+              initial={{ opacity: 0, y: -100 }}
+              animate={{
+                opacity: 1,
+                y: 0,
+                transition: { duration: 1, ease: "easeInOut" },
+              }}
+            >
+              <Image
+                src={planet3}
+                className=" absolute opacity-40 bottom-90 -left-40 h-10"
+                alt="planet"
+              />
+            </motion.div>
+          </section>
         </section>
 
         <section>
-          <div className=" mt-2 min-h-screen">
+          <div className=" mt-2 min-h-screen mb-5">
             <div className="text-center my-10  ">
               <h3
                 className=" text-3xl py-1 text-teal-500 justify-center flex"
@@ -224,7 +293,6 @@ export default function Home() {
             </div>
           </div>
         </section>
-
       </main>
     </div>
   );
