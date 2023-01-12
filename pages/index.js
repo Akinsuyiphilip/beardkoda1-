@@ -1,5 +1,6 @@
 import React from "react";
 import Head from "next/head";
+import Image from "next/image";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import {
   AiFillTwitterCircle,
@@ -16,7 +17,12 @@ import {
   SiNodedotjs,
   SiRedux,
 } from "react-icons/si";
+import planet1 from "../public/planet.svg";
+import planet2 from "../public/planet2.svg";
+import planet3 from "../public/planet3.svg";
+import planet4 from "../public/planet4.svg";
 import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -25,6 +31,14 @@ export default function Home() {
   useEffect(() => {
     AOS.init();
   }, []);
+
+  const svgVariant = {
+    hidden: { rotate: -180 },
+    visible: {
+      rotate: 0,
+      transion: { duration: 5 },
+    },
+  };
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -52,12 +66,19 @@ export default function Home() {
                 />
               </li>
               <li>
-                <a
-                  href="#"
-                  className=" bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-7"
+                <motion.div
+                  whileHover={{ scale: 1.2 }}
+                  whileTap={{ scale: 0.9 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+                  className=" ml-5"
                 >
-                  Contact Me
-                </a>
+                  <a
+                    href="#"
+                    className=" bg-gradient-to-r from-cyan-500 to-teal-500 text-white px-4 py-2 rounded-md ml-7"
+                  >
+                    Contact Me
+                  </a>
+                </motion.div>
               </li>
             </ul>
           </nav>
@@ -85,21 +106,49 @@ export default function Home() {
 
           <div
             className=" text-5xl flex justify-center gap-5 py-3 text-gray-500 dark:text-teal-500"
-            data-aos="fade-right"
-            data-aso-duration=" 1000"
+            data-aos="zoom-in"
+            data-aso-duration=" 4000"
           >
-            <a href="https://www.linkedin.com/in/joshua-akinsuyi/">
+            <motion.a
+              href="https://www.linkedin.com/in/joshua-akinsuyi/"
+              variants={svgVariant}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
               <AiFillLinkedin />
-            </a>
-            <a href="https://twitter.com/BeardKoda">
-              {" "}
+            </motion.a>
+            <motion.a
+              href="https://twitter.com/BeardKoda"
+              variants={svgVariant}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
               <AiFillTwitterCircle />
-            </a>
-            <a href="https://github.com/BeardKoda">
-              {" "}
+            </motion.a>
+            <motion.a
+              href="https://github.com/BeardKoda"
+              variants={svgVariant}
+              initial="hidden"
+              animate="visible"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
               <AiFillGithub />
-            </a>
+            </motion.a>
           </div>
+          <section className=" relative flex justify-center">
+          <Image src={planet1} className=" absolute opacity-40 -top-80 right-10 h-10" alt="planet" />
+          <Image src={planet2} className=" absolute opacity-40 -top-80 left-40 h-10" alt="planet" />
+          <Image src={planet3} className=" absolute opacity-40 bottom-90 -left-40 h-10" alt="planet" />
+          <Image src={planet4} className=" absolute opacity-40 -top-80 right-400 h-10" alt="planet" />
+        </section>
         </section>
 
         <section>
@@ -147,21 +196,35 @@ export default function Home() {
               </div>
             </div>
 
-            <div
-              className="flex justify-between  m-4 text-teal-800 my-5 w-50 md:ma-w-xl lg: max-w-xl mx-auto   dark:text-teal-500"
-              data-aos="fade-up-left"
-            >
-              <SiJavascript className=" text-2xl" />
-              <SiMongodb className=" text-2xl" />
-              <SiPhp className=" text-2xl" />
-              <SiReact className=" text-2xl" />
-              <SiTypescript className=" text-2xl" />
-              <SiNodedotjs className=" text-2xl" />
-              <SiRedux className=" text-2xl" />
-              <SiSass className=" text-2xl" />
+            <div className="flex justify-between  m-4 text-teal-800 my-5 w-50 md:ma-w-xl lg: max-w-xl mx-auto   dark:text-teal-500">
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiJavascript className=" text-2xl" />
+              </div>
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiMongodb className=" text-2xl" />
+              </div>
+              <div data-aos="zoom-in" data-aso-duration=" 1000">
+                <SiPhp className=" text-2xl" />
+              </div>
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiReact className=" text-2xl" />
+              </div>
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiTypescript className=" text-2xl" />
+              </div>
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiNodedotjs className=" text-2xl" />
+              </div>
+              <div data-aos="fade-up-left" data-aso-duration=" 1000">
+                <SiRedux className=" text-2xl" />
+              </div>
+              <div data-aos="fade-right" data-aso-duration=" 1000">
+                <SiSass className=" text-2xl" />
+              </div>
             </div>
           </div>
         </section>
+
       </main>
     </div>
   );
