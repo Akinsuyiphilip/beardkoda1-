@@ -17,12 +17,13 @@ import {
   SiNodedotjs,
   SiRedux,
 } from "react-icons/si";
+import { ImSpinner9 } from "react-icons/im";
 import planet1 from "../public/planet.svg";
 import planet2 from "../public/planet2.svg";
 import planet3 from "../public/planet3.svg";
 import planet4 from "../public/planet4.svg";
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { delay, motion } from "framer-motion";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
@@ -39,6 +40,14 @@ export default function Home() {
       transion: { duration: 5 },
     },
   };
+  const spinner = {
+    visible: {
+    
+      transition: { delay: 1, repeat: Infinity,  },
+      animate:{ }
+
+    },
+  };
 
   return (
     <div className={darkMode ? "dark" : ""}>
@@ -49,7 +58,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=" bg-white px-10 md:px-20 lg:px-60  dark:bg-gray-800">
-        <section className="  min-h-screen">
+        <section className=" relative  min-h-screen">
           <nav
             className=" py-10 mb-12 flex justify-between"
             data-aos="zoom-in-right"
@@ -103,7 +112,18 @@ export default function Home() {
               tools and Games.
             </p>
           </div>
-
+          <motion.div
+            className=" absolute top-40 right-60"
+            initial={{ x: 0 }}
+            animate={{ rotate: [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330, 360 ] }}
+            transition={{ type: "spring", duration: 1, bounce: 0.1, repeat: Infinity}}
+          >
+            <ImSpinner9
+              className=" text-4xl text-orange-600"
+              variants={spinner}
+              animate="visible"
+            />
+          </motion.div>
           <div
             className=" text-5xl flex justify-center gap-5 py-3 text-gray-500 dark:text-teal-500"
             data-aos="zoom-in"
@@ -143,80 +163,34 @@ export default function Home() {
               <AiFillGithub />
             </motion.a>
           </div>
-          <section className=" relative flex justify-center">
-            <motion.div
-              className="flex"
-              whileTap={{ scale: 0.9 }}
-              drag={true}
-              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-              initial={{ opacity: 0, y: -100 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1, ease: "easeInOut" },
-              }}
+          <section className=" flex justify-center">
+            {/* <motion.div 
+             initial={{x:"-100vw"}}
+             animate={{x:0}}
+             transition={{type: "spring", duration: 1, bounce:0.3}}
             >
-              <Image
-                src={planet1}
-                className=" absolute opacity-40 -top-80 right-10 h-10"
-                alt="planet"
-              />
-            </motion.div>
-            <motion.div
-              className="flex"
-              whileTap={{ scale: 0.9 }}
-              drag={true}
-              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-              initial={{ opacity: 0, y: -100 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1, ease: "easeInOut" },
-              }}
-            >
-              <Image
-                src={planet2}
-                className=" absolute opacity-40 -top-80 left-40 h-10"
-                alt="planet"
-              />
-            </motion.div>
-
-            <motion.div
-              className="flex"
-              whileTap={{ scale: 0.9 }}
-              drag={true}
-              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-              initial={{ opacity: 0, y: -100 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1, ease: "easeInOut" },
-              }}
-            >
-              <Image
-                src={planet4}
-                className=" absolute opacity-40 -top-80 right-400 h-10"
-                alt="planet"
-              />
-            </motion.div>
-            <motion.div
-              className="flex"
-              whileTap={{ scale: 0.9 }}
-              drag={true}
-              dragConstraints={{ left: 0, right: 250, top: 0, bottom: 50 }}
-              initial={{ opacity: 0, y: -100 }}
-              animate={{
-                opacity: 1,
-                y: 0,
-                transition: { duration: 1, ease: "easeInOut" },
-              }}
-            >
-              <Image
-                src={planet3}
-                className=" absolute opacity-40 bottom-90 -left-40 h-10"
-                alt="planet"
-              />
-            </motion.div>
+          
+              </motion.div> */}
+            <Image
+              src={planet1}
+              className="  absolute opacity-40 top-80 right-10 h-10"
+              alt="planet"
+            />
+            <Image
+              src={planet2}
+              className=" absolute opacity-40 top-80 left-40 h-10"
+              alt="planet"
+            />
+            <Image
+              src={planet4}
+              className=" absolute opacity-40 top-80 right-60 h-10"
+              alt="planet"
+            />
+            <Image
+              src={planet3}
+              className=" absolute opacity-40 bottom-90 -left-40 h-10"
+              alt="planet"
+            />
           </section>
         </section>
 
@@ -235,7 +209,6 @@ export default function Home() {
                 data-aos="fade-up"
                 data-aos-duration="3000"
               >
-                {" "}
                 "since the beginning of my journey as a Developer, I've done
                 remote work for <span className=" text-teal-500">agencies</span>
                 , consulted for <span className=" text-teal-500">startups</span>{" "}
