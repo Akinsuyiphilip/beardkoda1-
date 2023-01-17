@@ -8,8 +8,6 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    overflow-x: hidden;
-    
 }
 
 a {
@@ -24,14 +22,148 @@ a {
   font-family: "burtons";
   src: url("../public/Burtons.otf");
 }
-.svgstatic{
+.svgstatic {
   transition: transform 1s ease-in;
 }
-.svgmotion{
+.svgmotion {
   animation: let-to-right 1s ease-in;
 }
-@keyframes left-to-right{
-100%{
-  transform: translateX(100%);
+.svg {
+  position: absolute;
+  top: 7rem;
+  right: -10rem ;
+  height: 70%;
+  width: 50%;
+  transform: scale(0.5);
+  
+} 
+#followPath {
+  fill: none;
+  stroke: #0fcece;
+  stroke-width: 8;
+  stroke-dasharray: 50px;
+  stroke-dashoffset: 2820px;
+  animation: drawPath 15s linear infinite;
 }
+#dashedPath {
+  fill: none;
+  stroke: #1c7ee0;
+  stroke-width: 14;
+  stroke-dasharray: 50px;
+}
+#airplain {
+  fill: #129812;
+  
+}
+#airbody{
+  fill: none;
+}
+
+@keyframes drawPath {
+  0% {
+    opacity: 1;
+    stroke-dashoffset: 2820px;
+  }
+  53% {
+    opacity: 1;
+    stroke-dashoffset: 0;
+  }
+  78% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    stroke-dashoffset: 20px;
+  }
+} 
+
+#light{
+  position: relative;
+  top: 150px;
+}
+#lineh1{
+  position: absolute;
+  left: 0;
+  height: 10px;
+  background: #5500AA;
+  animation: lineH 4s 5s infinite linear;
+}
+#lineh2{
+  position: absolute;
+  left: 0;
+  top: 40px;
+  height: 10px;
+  background: #AA2B00;
+  animation: lineH 5s 0.5s infinite linear;
+}
+#lineh3{
+  position: absolute;
+  left: 0;
+  top: 70px;
+  height: 10px;
+  background: #00D4FF;
+  animation: lineH 5s 2s infinite linear;
+}
+#lineh4{
+  position: absolute;
+  right: 0;
+  top: 100px;
+  height: 10px;
+  background: #00AA2B;
+  animation: lineH 5s 1s infinite linear;
+}
+#lineh5{
+  position: absolute;
+  left: 0;
+  top: 130px;
+  height: 10px;
+  background: #AA8000;
+  animation: lineH 5s 4s infinite linear;
+}
+#lineh6{
+  position: absolute;
+  right: 0;
+  top: 160px;
+  height: 10px;
+  background: #AAFF00;
+  animation: lineH 4s 1s infinite linear;
+}
+#lineh7{
+  position: absolute;
+  right: 0;
+  top: 190px;
+  height: 10px;
+  background: #D50055;
+  animation: lineH 4s 0s infinite linear;
+}
+#lineh8{
+  position: absolute;
+  left: 0;
+  top: 220px;
+  height: 10px;
+  background: #00FFFF;
+  animation: lineH 4s 1.5s infinite linear;
+}
+
+@keyframes lineH{
+  0%{
+    width: 0%;
+  }
+  100%{
+    width: 95%;opacity: 0;
+  }
+}
+
+@media only screen and  (max-width: 600px) {
+  body{
+    overflow-x: hidden;
+  }
+  .svg {
+    position: absolute;    top: 3rem;
+    left: -3rem ;
+    height: 100%;
+    width: 50%;
+    transform: scale(0.6);
+    
+  } 
 }
