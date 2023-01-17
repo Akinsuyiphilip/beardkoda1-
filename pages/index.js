@@ -65,8 +65,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=" bg-[#fffafa] px-10 md:px-20 lg:px-40  dark:bg-gray-800">
-        <section className=" relative  min-h-screen">
+      <main className=" relative bg-[#fffafa] px-10 md:px-20 lg:px-40 overflow-y-scroll snap-y  dark:bg-gray-800">
+        <section className=" absolute top-0 w-4/5 z-50 ">
           <nav
             className={`py-10 mb-12 flex justify-between items-center ${stickyClass}`}
           >
@@ -97,6 +97,9 @@ export default function Home() {
               </li>
             </ul>
           </nav>
+        </section>
+
+        <section className=" relative flex justify-center flex-col items-center min-h-screen snap-start">
           <div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -139,10 +142,10 @@ export default function Home() {
                 here 🤞,
               </span>
             </h2>
-            <h3 className=" text-xl py-2 font-medium md:text-2xl lg:text-5xl ">
+            <h3 className=" text-xl py-2 font-medium md:text-2xl lg:text-5xl " data-aos="fade-down" data-aos-duration="1500">
               I'm a Software Engineer,
             </h3>
-            <p className=" text-md py-5 leading-7 text-gray-800 md:text-xl max-w-xl mx-auto lg:text-xl max-w-xl mx-auto dark:text-white">
+            <p className=" text-md py-5 leading-7 text-gray-800 md:text-xl max-w-xl mx-auto lg:text-xl max-w-xl mx-auto dark:text-white" data-aos="zoom-in-up" data-aos-duration="1500">
               Automation is everything to me, I love learning new things
               everyday from programming languages, programming tools, automation
               tools and Games.
@@ -203,13 +206,6 @@ export default function Home() {
             </motion.a>
           </div>
           <div>
-            {/* <motion.div 
-             initial={{x:"-100vw"}}
-             animate={{x:0}}
-             transition={{type: "spring", duration: 1, bounce:0.3}}
-            >
-          
-              </motion.div> */}
             <Image
               src={planet1}
               className="  absolute opacity-40 top-80 right-10 h-10"
@@ -232,12 +228,12 @@ export default function Home() {
             />
           </div>
         </section>
-        <section className=" min-h-screen ">
+
+        <section className=" min-h-screen flex justify-center flex-col items-center snap-start ">
           <div>
             <div className="text-center my-10  ">
               <h3
                 className={`text-3xl py-1 text-teal-500 justify-center flex`}
-                // ${stickyHeader}
                 data-aos="fade-up"
                 data-aos-duration="2000"
               >
@@ -254,6 +250,7 @@ export default function Home() {
                 and collaborated with talented people to create didgital product
                 for both business and consumer use."
               </p>
+          
               <p
                 className=" text-md py-5 leading-7 text-center text-gray-800 md:text-xl max-w-xl mx-auto lg:text-xl max-w-xl mx-auto dark:text-white"
                 data-aos="fade-up"
@@ -263,21 +260,15 @@ export default function Home() {
                 Analyst, FullStack Devloper And DataScientist.
               </p>
             </div>
+            <div id="light">
+                <div id="lineh1"></div>
+                <div id="lineh2"></div>
+              </div>
           </div>
-
-          <div id="light">
-            <div id="lineh1"></div>
-            <div id="lineh2"></div>
-            <div id="lineh3"></div>
-            <div id="lineh4"></div>
-            <div id="lineh5"></div>
-            <div id="lineh6"></div>
-            <div id="lineh7"></div>
-            <div id="lineh8"></div>
-          </div>
+          
         </section>
 
-        <section className="min-h-screen">
+        <section className="min-h-screen flex justify-center flex-col items- snap-start ">
           <div data-aos="zoom-in" data-aos-duration="1000">
             <div className=" text-center  mt-10 py-14 ">
               <h4 className=" text-3xl py-1 text-teal-500 text-center mb-3">
@@ -322,3 +313,4 @@ export default function Home() {
     </div>
   );
 }
+
